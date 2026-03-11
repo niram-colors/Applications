@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Text Copy</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Image Text Copy</h1>
+    <p class="subtitle">Extract text directly in your browser. Nothing is uploaded or stored.</p>
+
+    <label class="drop-zone" id="dropZone" for="imageInput">
+      <input id="imageInput" type="file" accept="image/*" />
+      <span id="dropHint">Drop an image here, paste from clipboard, or click to choose a file.</span>
+    </label>
+
+    <img id="preview" alt="Image preview" hidden />
+
+    <div class="actions">
+      <button id="extractBtn" disabled>Extract text</button>
+      <button id="captureBtn">Capture screen</button>
+      <button id="copyBtn" disabled>Copy text</button>
+      <button id="clearBtn">Clear</button>
+    </div>
+
+    <p class="shortcut-help">Shortcuts: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> to capture screen, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd> to extract, <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> to copy.</p>
+
+    <p id="status" aria-live="polite"></p>
+
+    <label for="output">Recognized text</label>
+    <textarea id="output" rows="12" placeholder="Extracted text appears here..."></textarea>
+
+    <details>
+      <summary>Privacy</summary>
+      <p>All processing happens on your device using your browser and WebAssembly. No files are uploaded and no OCR results are saved by this app.</p>
+    </details>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
